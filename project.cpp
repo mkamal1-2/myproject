@@ -15,17 +15,14 @@ int main() {
             while (true) {
                 cout << "Enter specialization, name, status: ";
                 cin >> spec >> name >> stat;
-                if (cin.fail()) {
-                    cout << "Invalid input!" << '\n'; continue;
-                }
                 if (spec > 20 || spec < 1) {
                     cout << "Enter valid specialization!" << '\n';
                     continue;
                 }
-                if (stat > 1 || stat < 0) {
+                else if (stat > 1 || stat < 0) {
                     cout << "Enter valid status!" << '\n';
                 }
-                if (stat == 1) {
+                else if (stat == 1) {
                     statu = "urgent";
                     }
                 else {
