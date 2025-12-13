@@ -15,6 +15,9 @@ int main() {
             while (true) {
                 cout << "Enter specialization, name, status: ";
                 cin >> spec >> name >> stat;
+                if (cin.fail()) {
+                    cout << "Invalid input!" << '\n'; continue;
+                }
                 if (spec > 20 || spec < 1) {
                     cout << "Enter valid specialization!" << '\n';
                     continue;
