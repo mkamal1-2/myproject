@@ -12,21 +12,32 @@ int main() {
         << "4) Exit\n";
         cin >> choice;
         if (choice == 1) {
-            cout << "Enter specialization, name, status: ";
-            cin >> spec >> name >> stat;
-            if (stat == 1) {
-                statu = "urgent";
-            }
-            else {
-                statu = "regular";
-            }
-            Patient z;
-            z.name = name; z.status = statu;
-            if (stat == 1) {
-                v[spec].push_front(z);
-            }
-            else {
-                v[spec].push_back(z);
+            while (true) {
+                cout << "Enter specialization, name, status: ";
+                cin >> spec >> name >> stat;
+                if (spec > 20 || spec < 1) {
+                    cout << "Enter valid specialization!" << '\n';
+                    continue;
+                }
+                if (stat > 1 || stat < 0) {
+                    cout << "Enter valid status!" << '\n';
+                }
+                if (stat == 1) {
+                    statu = "urgent";
+                    }
+                else {
+                    statu = "regular";
+                    }
+                Patient z;
+                z.name = name; z.status = statu;
+                if (stat == 1) {
+                    v[spec].push_front(z);
+                    break;
+                }
+                else {
+                    v[spec].push_back(z);
+                    break;
+                }
             }
         }
         else if (choice == 2) {
@@ -61,7 +72,7 @@ int main() {
         }
         else if (choice == 4) return 0;
         else {
-           cout << "Enter a valid choice!" << '\n';
+            cout << "Enter a valid choice!" << '\n';
         }
     }
 }
